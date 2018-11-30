@@ -20,12 +20,17 @@ The step will be
 
 ```
 python3 -m pip install -U pygame --user
-```
-
-And repeat
 
 ```
-until finished
+
+And import pygame into python,
+
+```
+>>>import pygame
+pygame 1.9.4
+
+Hello from the pygame community. https://www.pygame.org/contribute.html
+
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
