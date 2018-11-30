@@ -16,11 +16,11 @@ Nowadays, the Greedy snakes becomes a common name of vedio games that players co
 While playing the game, players manipulate a long, thin string, we call it snake. The snake keeps moving, with changing in dirctions to pick up the "apples". Direction changing is controlled by players with up, down, left, and righht key on the keyboard. Everytime the snake sucessfully picked up an "apple", the snake will grow longer by one unit. At the same time, players need to be careful with touching the walls and its body.
 
 
-## Getting Started
+# Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Installation instructions
+## Installation instructions
 
 Development env for running: Python 3
 
