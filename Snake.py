@@ -25,17 +25,29 @@ class Snake:
             
         self.coordinates = [{'x':self.x - i, 'y':self.y} for i in range(self.length)]
         
-        # potentially useful but not necessary features
         self.alive = True
-        self.lifetime = 0
     
-    def next_move(self, self.
+    def move_to_next_position(self):
+        
+        # add head coordinates
+        new_position = {'x':self.x + self.direction_dict['right'] - self.direction_dict['left'], 
+                        'y': self.y + self.direction_dict['up'] - self.direction_dict['down']}
+        
+        # check if new position is already in coordinates
+        if new_position in self.coordinates[:-1]:
+            self.alive = False
+        
+        # if not then next move doesn't kill snake
+        else:
+            self.coordinates.prepend(new_position)
+            # remove tail coordinates
+            del self.coordinates[-1]
+        
         
     
     def change_length(self, increment=1):
         self.length+=increment
-        
-        
+
                       
     def change_speed(self, speed_difference):
         if self.speed < speed_difference:

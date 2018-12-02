@@ -10,27 +10,22 @@ def drawSnake(snake):
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, Grid_Size - 8, Grid_Size - 8)
         pygame.draw.rect(Surfingdisplay, Black, wormInnerSegmentRect)
 
-def drawApple():
-    for coord in self.coordinates:
-        x = coord['x'] * Grid_Size
-        y = coord['y'] * Grid_Size
-        appleRect = pygame.Rect(x, y, Grid_Size, Grid_Size)
-        pygame.draw.rect(Surfingdisplay, Red, appleRect)
+def drawApple(x, y, Grid_Size, Grid_Size):
+    appleRect = pygame.Rect(x, y, Grid_Size, Grid_Size)
+    pygame.draw.rect(Surfingdisplay, Red, appleRect)
 
-def apple_eaten(): 
-    apple_eaten_list = [self.head['x'] == apple_list[i]['x'] 
-                       and self.head['y'] == apple_list[i]['y'] 
-                       for i in range(len(apple_list))]
+def eat_apple(apple_list, snake): 
+    head_location = {'x':snake.x, "y":snake.y}
+    if head_location in apple_list:
+        apple_list.remove(head_location)
 
-    if sum(apple_eaten_list) == 1:
-        i = np.argmax(apple_eaten_list)
-        del apple_list[i]
-        self.apple_locations
+    # generate new apple, redo if in apple_list or snake coordinates
+    new_apple = getRandomLocation()
+    while new_apple in apple_list or new_apple in snake.coordinates:
+        new_apple = getRandomLocation()
+    
 
-    else:
-        del self.coordinates[-1]
-
-def getRandomLocation(Grid_W, Grid_H):
+def getRandomLocation(Grid_W=40, Grid_H=25):
     return {'x': random.randint(0, Grid_W - 1), 'y': random.randint(0, Grid_H - 1)}
 
 def showKeyMsg():
