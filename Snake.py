@@ -2,11 +2,11 @@ import random
 
 class Snake:
     '''
-    speed: speed of the snake. Default is 10, and can be adjusted for acceleration
+    speed: speed of the snake. Default is 5, and can be adjusted for acceleration
     length: length of the snake. Default is 3, and will increase by 1 for each apple eaten
     Grid_W, Grid_H: Grid_W and Grid_H must be provided when instantiating a Snake object
     '''
-    
+
     def __init__(self, Grid_W, Grid_H, length=3, speed=5):
 
         self.x = random.randint(5, Grid_W - 6)
