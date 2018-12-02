@@ -1,5 +1,5 @@
 from utils import getRandomLocation
-
+import random
 
 class Snake:
     '''
