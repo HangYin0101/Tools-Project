@@ -24,7 +24,6 @@ def eat_apple(apple_list, snake):
     while new_apple in apple_list or new_apple in snake.coordinates:
         new_apple = getRandomLocation()
     
-
 def getRandomLocation(Grid_W=40, Grid_H=25):
     return {'x': random.randint(0, Grid_W - 1), 'y': random.randint(0, Grid_H - 1)}
 
