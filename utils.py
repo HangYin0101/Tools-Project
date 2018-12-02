@@ -32,6 +32,7 @@ def apple_eaten():
 
 def getRandomLocation(Grid_W, Grid_H):
     return {'x': random.randint(0, Grid_W - 1), 'y': random.randint(0, Grid_H - 1)}
+
 def showKeyMsg():
     FONT_BASIC = pygame.font.Font('freesansbold.ttf', 18)
     keySurf = FONT_BASIC.render('Press any key to begin!', True, RedPink)

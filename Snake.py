@@ -29,16 +29,17 @@ class Snake:
         self.alive = True
         self.lifetime = 0
     
-    def change_position(self, x_distance, y_distance):
-        self.x += x_distance
-        self.y += y_distance
+    def next_move(self, self.
         
-        self.coordinates = [{'x':self.x - self.direction_dict['right']*i + self.direction_dict['left']*i, 
-                             'y':self.y - self.direction_dict['up']*i + self.direction_dict['down']*i} for i in range(self.length)]
     
+    def change_length(self, increment=1):
+        self.length+=increment
+        
+        
+                      
     def change_speed(self, speed_difference):
         if self.speed < speed_difference:
-            print("speed cannot be changed")
+            print("speed cannot be changed to negative")
             return None
         else:
             self.speed += speed_difference
@@ -52,21 +53,20 @@ class Snake:
         self.direction_dict[direction] = 1
         
         # if in the same direction, either left and right will both be 1, or up and down will both be 1
-        if self.direction_dict['left'] * self.direction_dict['right'] ==1:
-            self.x = self.coordinates[-1]['x']
-            self.coordinates.reverse()
-        
-        # up down case
-        elif self.direction_dict['up'] * self.direction_dict['down'] ==1:
-            self.y = self.coordinates[-1]['y']
-            self.coordinates.reverse()
-        
-        # change current direction in direction_dict to 0
-        self.direction_dict[self.current_direction] = 0
+        if self.direction_dict['left'] * self.direction_dict['right'] == 1:
+            self.direction_dict[direction] = 0
 
-        # change current_direction
-        self.current_direction = direction
+        # up down case
+        elif self.direction_dict['up'] * self.direction_dict['down'] == 1:
+            self.direction_dict[direction] = 0
         
+        else:
+            # change current direction in direction_dict to 0
+            self.direction_dict[self.current_direction] = 0
+
+            # change current_direction
+            self.current_direction = direction
+    
     def kill(self): 
         self.alive = False
  
