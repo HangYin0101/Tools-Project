@@ -33,6 +33,11 @@ python3 -m pip install -U pygame --user
 Once pygame has been installed, all other dependencies should already be installed, since the libraries required by the game is random, sys, and pygame only.
 
 
+
+```
+git clone https://github.com/HangYin0101/Tools-Project/
+cd Tools-Project
+python game.py
 ```
 >>>import pygame
 pygame 1.9.4
