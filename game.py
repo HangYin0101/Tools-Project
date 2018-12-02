@@ -130,7 +130,7 @@ def terminate():
     sys.exit()
 
 
-def rungame(snake, num_apples=20):
+def rungame(snake, num_apples=10):
 
 
     # create a group of apples and append to list
@@ -172,7 +172,7 @@ def rungame(snake, num_apples=20):
 
         drawSnake(snake)
 
-        drawApple(apple_list,20)
+        drawApple(apple_list,10)
 
         drawScore(snake.length - 3)
 
