@@ -53,5 +53,13 @@ python game.py
 
 ```
 
-### Explanation on game
+## Explanation on game
 ### Main snake object
+
+A Snake class was created to initiate properties and location of the moving object, which can be called in the main function and rungame function in game.py.
+
+The speed and length of the snake were defined as 5 and 3 units. The "change_length" and "change_speed" methods allows player to increase the length or speed of the snake, depending on whether an apple is eaten, or "space" key is pressed by the player.
+
+The snake can change directions based on the arrow control keys.
+
+The life status of the snake changes when its head hits the edges of the window, or it hits the snake body.
