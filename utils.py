@@ -1,7 +1,7 @@
 import random
 import pygame
 
-def drawSnake(snake):
+def drawSnake(snake, Grid_Size):
     for coord in snake.coordinates:
         x = coord['x'] * Grid_Size
         y = coord['y'] * Grid_Size
@@ -10,19 +10,28 @@ def drawSnake(snake):
         wormInnerSegmentRect = pygame.Rect(x + 4, y + 4, Grid_Size - 8, Grid_Size - 8)
         pygame.draw.rect(Surfingdisplay, Black, wormInnerSegmentRect)
 
-def drawApple(x, y, Grid_Size, Grid_Size):
-    appleRect = pygame.Rect(x, y, Grid_Size, Grid_Size)
-    pygame.draw.rect(Surfingdisplay, Red, appleRect)
+def drawApple(apple_list, Grid_Size):
+    for apple in apple_list:
+        appleRect = pygame.Rect(apple['x'], apple['y'], Grid_Size, Grid_Size)
+        pygame.draw.rect(Surfingdisplay, Red, appleRect)
 
 def eat_apple(apple_list, snake): 
+    temp = apple_list
     head_location = {'x':snake.x, "y":snake.y}
     if head_location in apple_list:
-        apple_list.remove(head_location)
+        temp.remove(head_location)
 
     # generate new apple, redo if in apple_list or snake coordinates
     new_apple = getRandomLocation()
     while new_apple in apple_list or new_apple in snake.coordinates:
         new_apple = getRandomLocation()
+    
+    temp.append(new_apple)
+    
+    snake.change_length()
+    snake.set_eating()
+    
+    return temp
     
 def getRandomLocation(Grid_W=40, Grid_H=25):
     return {'x': random.randint(0, Grid_W - 1), 'y': random.randint(0, Grid_H - 1)}
@@ -63,6 +72,7 @@ def showGameOverScreen():
     Font_gameOver = pygame.font.Font('freesansbold.ttf', 100)
     Surfing1 = Font_gameOver.render('You', True, White) 
     Surfing2 = Font_gameOver.render('Lose', True, White) 
+    Surfing2 = Font_gameOver.render('EVERYTHING', True, White) 
     gameRect = Surfing1.get_rect(midtop=(FrameWidth / 2, 10)) 
     overRect = Surfing2.get_rect(midtop=(FrameWidth / 2, gameRect.height + 30)) 
 

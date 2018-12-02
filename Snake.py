@@ -9,7 +9,7 @@ class Snake:
     Grid_W, Grid_H: Grid_W and Grid_H must be provided when instantiating a Snake object
     '''
     
-    def __init__(self, Grid_W, Grid_H, length=3, speed=10, num_apples = 10):
+    def __init__(self, Grid_W, Grid_H, length=3, speed=10):
         
         self.x = random.randint(5, Grid_W - 6)
         self.y = random.randint(5, Grid_H - 6)
@@ -26,6 +26,7 @@ class Snake:
         self.coordinates = [{'x':self.x - i, 'y':self.y} for i in range(self.length)]
         
         self.alive = True
+        self.eating= False
     
     def move_to_next_position(self):
         
@@ -35,16 +36,16 @@ class Snake:
         
         # check if new position is already in coordinates
         if new_position in self.coordinates[:-1]:
-            self.alive = False
+            self.kill()
         
         # if not then next move doesn't kill snake
         else:
             self.coordinates.prepend(new_position)
             # remove tail coordinates
-            del self.coordinates[-1]
-        
-        
-    
+            if ~self.eating:
+                del self.coordinates[-1]
+            self.eating = False
+            
     def change_length(self, increment=1):
         self.length+=increment
 
@@ -81,4 +82,7 @@ class Snake:
     
     def kill(self): 
         self.alive = False
+        
+    def set_eating(self):
+        self.eating = True
  
