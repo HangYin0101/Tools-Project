@@ -65,7 +65,7 @@ While playing the game, player controls a long, thin string, we call it snake. T
 
 5. Again, press any key to restart the game, the scores do not accumulate each time each time your snake dies.
 
-6.If you want to quit the game, just press esc.
+6. If you want to quit the game, just press esc.
 
 
 ## Explanation on game
